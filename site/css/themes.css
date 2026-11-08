@@ -1,12 +1,15 @@
 /* Casa Dulce – teme de culoare.
    Singurul fișier cu valori de culoare. Restul CSS-ului folosește doar var(--…).
-   Pudră și Colorat sunt PROVIZORII până la fișierele de referință casa-dulce-deschis.html / casa-dulce-colorat.html. */
+   Variabilele „de detaliu” (meniu pe secțiuni, cartonașe, sumar eveniment etc.) au în style.css
+   o valoare de rezervă din paleta de bază, așa că o temă le definește doar când diferă.
+   Unde culoarea din referință nu avea contrast AA cu textul de pe ea, am păstrat nuanța
+   și am închis-o puțin (marcat cu „AA”). */
 
 :root{
   /* bulinele din selectorul de temă */
   --sw-ciocolata:linear-gradient(135deg,#3B2418 0 50%,#C98A2E 50% 100%);
-  --sw-pudra:linear-gradient(135deg,#F3E4E1 0 50%,#A04650 50% 100%);
-  --sw-colorat:conic-gradient(#D62839 0 25%,#F49CBB 0 50%,#2149A8 0 75%,#FFC93C 0);
+  --sw-pudra:linear-gradient(135deg,#FDF1EB 0 50%,#E39A7E 50% 100%);
+  --sw-colorat:conic-gradient(#E8384F 0 25%,#FF7EB0 0 50%,#3E7FE0 0 75%,#FFC93C 0);
 }
 
 /* ——— Ciocolată (închisă) – din referinta/casa-dulce-app.html ——— */
@@ -14,7 +17,6 @@
   --cr:#FAF5EC; --cr2:#F1E8D8; --ln:#E6DAC4; --wh:#FFFDF9;
   --ch:#3B2418; --ch2:#5A3A28; --mu:#6F604F;
   --hn:#C98A2E; --hn-t:#8C5B12; --sg:#4C6544; --err:#A4441F;
-  --bu:#5A3A28; --pk:#E8B4A6; --ye:#F1C27A;
   --on-ch:#FFFFFF; --cta:#9C6417; --on-cta:#FFFFFF;
   --tag-bg:#FFFDF9; --tag-tx:#5A3A28;
   --logo-bg:#C98A2E; --logo-tx:#3B2418;
@@ -26,36 +28,87 @@
   --sh:rgba(59,36,24,.35); --scrim:rgba(40,24,16,.55); --focus:#C98A2E;
 }
 
-/* ——— Pudră (deschisă) – implicită ——— */
+/* ——— Pudră (deschisă) – implicită – din referinta/casa-dulce-deschis.html ———
+   bază: cr #FFF9F5, cr2 #FBEDE6, ln #F1DED4, ch #6E4B3E, ch2 #8A6455, hn #E39A7E, bl #F6CFC2, sg #7FA38A, mu #9A847A */
 [data-theme="pudra"]{
-  --cr:#FBF6F4; --cr2:#F4E8E5; --ln:#EAD8D3; --wh:#FFFFFF;
-  --ch:#4A2C33; --ch2:#6B4550; --mu:#735860;
-  --hn:#D9A3A0; --hn-t:#9A3F4A; --sg:#3F6450; --err:#A23A2A;
-  --bu:#8FA7C4; --pk:#F2C9C4; --ye:#F3D9A8;
-  --on-ch:#FFFFFF; --cta:#9A3F4A; --on-cta:#FFFFFF;
-  --tag-bg:#FFFFFF; --tag-tx:#6B4550;
-  --logo-bg:#D9A3A0; --logo-tx:#4A2C33;
-  --sel-hi:#F6CFCB;
-  --rl:#F3E4E1; --rl-tx:#4A2C33; --rl-mu:#6D5057; --rl-2:#EAD3CF; --rl-ln:#DCC2BD; --rl-hov:#EBD7D3;
-  --rl-hi:#8E3742; --rl-st:#3A2027; --rl-bar:#DFC5C0; --rl-fill:#B9646C; --rl-on:#FFFFFF; --rl-on-tx:#4A2C33;
-  --st-bg:#F8E1DD; --st-tx:#7C3440; --ok-bg:#E1EDE4; --ok-tx:#365744;
-  --tile-tx:#FFFFFF; --tile-sh:rgba(58,32,39,.8);
-  --sh:rgba(74,44,51,.22); --scrim:rgba(58,32,39,.45); --focus:#9A3F4A;
+  --cr:#FFF9F5; --cr2:#FBEDE6; --ln:#F1DED4; --wh:#FFFFFF;
+  --ch:#6E4B3E; --ch2:#8A6455;
+  --mu:#7D665C;                 /* AA: din #9A847A */
+  --hn:#E39A7E;
+  --hn-t:#9E5036;               /* AA: text în nuanța #E39A7E / #C9775A */
+  --em:#C46F50;                 /* titluri italice mari (din #E39A7E) */
+  --sg:#4A7357;                 /* AA: din #7FA38A */
+  --err:#A23A2A;
+  --on-ch:#FFFFFF;
+  --cta:#E39A7E; --on-cta:#4A2E24;   /* butonul piersică; text închis pentru AA */
+  --tag-bg:#FFFFFF; --tag-tx:#8A6455;
+  --logo-bg:#F6CFC2; --logo-tx:#6E4B3E;
+  --sel-hi:#F6CFC2;
+  /* meniul lateral, antetul mobil */
+  --rl:#FDF1EB; --rl-tx:#6E4B3E; --rl-mu:#7E665C; --rl-2:#F9E4DA; --rl-ln:#F1DED4; --rl-hov:#F9E4DA;
+  --rl-hi:#A3563A; --rl-st:#6E4B3E; --rl-bar:#FBEDE6; --rl-fill:#E39A7E; --rl-on:#FFFFFF; --rl-on-tx:#6E4B3E;
+  --rl-border:1px solid #F1DED4; --mtop-border:1px solid #F1DED4;
+  --nav-sh:0 2px 10px rgba(110,75,62,.08);
+  --cal-bg:#FFFFFF; --cal-border:1px solid #F1DED4; --cal-tx:#6E4B3E; --cal-mu:#7E665C;
+  /* sumarul rezervării */
+  --evs:#FDF1EB; --evs-tx:#6E4B3E; --evs-mu:#7E665C; --evs-st:#6E4B3E; --evs-2:#FFFFFF; --evs-ln:#F1DED4;
+  --evs-hi:#A3563A; --evs-border:1px solid #F1DED4;
+  /* selecții */
+  --dd-on:#E39A7E; --on-dd:#4A2E24; --dd-on-hi:#4A2E24;
+  --st-bg:#F6E6C9; --st-tx:#7A5517; --ok-bg:#E3EBDD; --ok-tx:#41643A;
+  --tile-tx:#FFFFFF; --tile-sh:rgba(110,75,62,.78);
+  --sh:rgba(110,75,62,.25); --scrim:rgba(74,46,36,.45); --focus:#C9775A;
 }
 
-/* ——— Colorat (roșu, roz, albastru, galben) ——— */
+/* ——— Colorat (roșu, roz, albastru, galben) – din referinta/casa-dulce-colorat.html ———
+   bază: cr #FFFBF2, cr2 #FFF1D6, ln #F2E2C4, ch #1F2A5C, ch2 #2E3C7A, rd #E8384F, pk #FF7EB0, bu #3E7FE0, ye #FFC93C, mu #6B6F86 */
 [data-theme="colorat"]{
-  --cr:#FFF8EE; --cr2:#FFEFD9; --ln:#F1DCC2; --wh:#FFFFFF;
-  --ch:#1E2A5A; --ch2:#33407A; --mu:#5A5F78;
-  --hn:#E63946; --hn-t:#BF1A2A; --sg:#2E6B3F; --err:#B3141F;
-  --bu:#2B59C3; --pk:#F49CBB; --ye:#FFC93C;
-  --on-ch:#FFFFFF; --cta:#D0263A; --on-cta:#FFFFFF;
-  --tag-bg:#FFC93C; --tag-tx:#1E2A5A;
-  --logo-bg:#FFC93C; --logo-tx:#1E2A5A;
-  --sel-hi:#FFC93C;
-  --rl:#2149A8; --rl-tx:#FFFFFF; --rl-mu:#DCE5FF; --rl-2:#1A3D91; --rl-ln:#4268C4; --rl-hov:#1C419A;
-  --rl-hi:#FFC93C; --rl-st:#FFFFFF; --rl-bar:#1A3C8C; --rl-fill:#F49CBB; --rl-on:#FFC93C; --rl-on-tx:#1E2A5A;
-  --st-bg:#FFE6A1; --st-tx:#5E4400; --ok-bg:#DDF0E1; --ok-tx:#235532;
-  --tile-tx:#FFFFFF; --tile-sh:rgba(30,42,90,.82);
-  --sh:rgba(30,42,90,.3); --scrim:rgba(30,42,90,.5); --focus:#2B59C3;
+  --cr:#FFFBF2; --cr2:#FFF1D6; --ln:#F2E2C4; --wh:#FFFFFF;
+  --ch:#1F2A5C; --ch2:#2E3C7A;
+  --mu:#646880;                 /* AA: din #6B6F86 */
+  --hn:#E8384F;
+  --hn-t:#C41E36;               /* AA: roșul pentru text mic */
+  --em:#D63D80;                 /* titluri italice (din roz #FF7EB0) */
+  --hero-em:#E8384F;
+  --sg:#2563C4;                 /* AA: albastrul pentru text (din #3E7FE0 / #2D7FD3) */
+  --eyebrow:#2563C4;
+  --err:#C41E36;
+  --on-ch:#FFFFFF;
+  --cta:#FFC93C; --on-cta:#1F2A5C;
+  --tag-bg:#FFC93C; --tag-tx:#1F2A5C; --tag2-bg:#FF7EB0; --tag2-tx:#1F2A5C;
+  --logo-bg:#FFC93C; --logo-tx:#1F2A5C; --logo-st:#C41E36; --logo-sub:#2563C4;
+  --sel-hi:#FFE69A;
+  /* meniul lateral roz, fiecare secțiune activă în altă culoare */
+  --rl:#FFF1F6; --rl-tx:#1F2A5C; --rl-mu:#646880; --rl-2:#FFE3EE; --rl-ln:#FFD6E6; --rl-hov:#FFE3EE;
+  --rl-hi:#C41E36; --rl-st:#1F2A5C; --rl-bar:#FFE69A; --rl-fill:#E8384F; --rl-on:#1F2A5C; --rl-on-tx:#FFFFFF;
+  --rl-border:2px solid #FFD6E6; --mtop-border:2px solid #FFD6E6; --mb-st:#2563C4;
+  --nav-home:#C41E36; --nav-home-tx:#FFFFFF;      /* roșu (AA: din #E8384F) */
+  --nav-shop:#FF7EB0; --nav-shop-tx:#1F2A5C;      /* roz */
+  --nav-events:#2563C4; --nav-events-tx:#FFFFFF;  /* albastru (AA: din #3E7FE0) */
+  --nav-coz:#FFC93C; --nav-coz-tx:#1F2A5C;        /* galben */
+  --nav-orders:#1F2A5C; --nav-orders-tx:#FFFFFF;  /* bleumarin */
+  --bd-bg:#FFC93C; --bd-tx:#1F2A5C;
+  --cal-bg:#FFC93C; --cal-tx:#1F2A5C; --cal-mu:#5A4A10; --cal-bar:#FFE69A; --cal-fill:#E8384F;
+  /* conținut */
+  --top-bg:#FFFFFF;
+  --hero-bg:linear-gradient(120deg,#FFE3EE,#FFF4D1); --hero-border:0 solid transparent;
+  --btn-bg:#C41E36; --on-btn:#FFFFFF;
+  --btnl-bg:#FFFFFF; --btnl-tx:#1F2A5C; --btnl-border:2px solid #1F2A5C;
+  /* cartonașele de pe Acasă: roșu, albastru, galben */
+  --tile1:rgba(200,30,54,.9); --tile2:rgba(37,90,190,.9); --tile3:rgba(255,183,40,.95);
+  --tile-tx:#FFFFFF; --tile3-tx:#1F2A5C; --tile-sh:rgba(31,42,92,.82);
+  --card-border:2px solid #F2E2C4; --ph-alt:#FFE3EE;
+  --plus-bg:#C41E36; --on-plus:#FFFFFF; --stp-bg:#2563C4; --on-stp:#FFFFFF;
+  --sel:#2563C4; --on-sel:#FFFFFF;
+  --chip-on:#FF7EB0; --on-chip:#1F2A5C;
+  --day-on:#FFC93C; --on-day:#1F2A5C; --day-on-hi:#6A4D00;
+  --dd-bg:#EEF4FF; --dd-on:#C41E36; --on-dd:#FFFFFF; --dd-on-hi:#FFE69A;
+  --rng-acc:#FF7EB0;
+  --pk-on-bd:#3E7FE0; --pk-on-bg:#F2F7FF; --pk-acc:#2563C4;
+  --fil-on-bd:#E8384F; --fil-on-bg:#FFF0F2;
+  --evs:#2152AD; --evs-tx:#EAF1FF; --evs-mu:#C9DBFF; --evs-st:#FFFFFF; --evs-2:#1A4596; --evs-ln:#6E9EEA; --evs-hi:#FFC93C;
+  --cart-h:#E8384F; --total:#E8384F; --mode-on:#2563C4;
+  --tab-on:#C41E36; --tab-bdg:#C41E36; --on-tab-bdg:#FFFFFF;
+  --st-bg:#FFF1D6; --st-tx:#8A5A00; --ok-bg:#E6F0FF; --ok-tx:#2563C4;
+  --sh:rgba(31,42,92,.3); --scrim:rgba(31,42,92,.5); --focus:#3E7FE0;
 }

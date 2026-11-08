@@ -1,5 +1,5 @@
 /* Casa Dulce – service worker (cache-first). Schimbă VERSION la fiecare publicare. */
-const VERSION = "casa-dulce-v1";
+const VERSION = "casa-dulce-v2";
 const SHELL = [
   "/", "/index.html", "/confidentialitate.html", "/manifest.webmanifest",
   "/css/themes.css", "/css/style.css",

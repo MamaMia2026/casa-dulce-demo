@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#F3E4E1">
+<meta name="theme-color" content="#FDF1EB">
 <script>
 /* tema înainte de prima afișare: ?tema= → localStorage → implicit „pudra” */
-(function(){var T={ciocolata:"#3B2418",pudra:"#F3E4E1",colorat:"#2149A8"},t=null;
+(function(){var T={ciocolata:"#3B2418",pudra:"#FDF1EB",colorat:"#FFF1F6"},t=null;
 try{var p=new URLSearchParams(location.search).get("tema");if(p&&T[p]){t=p;localStorage.setItem("cd_tema",p)}}catch(e){}
 if(!t){try{t=localStorage.getItem("cd_tema")}catch(e){}}if(!T[t])t="pudra";
 document.documentElement.setAttribute("data-theme",t);
@@ -98,15 +98,15 @@ document.querySelector('meta[name="theme-color"]').setAttribute("content",T[t]);
     <div class="hd"><h2 class="fr" id="h-events">Rezervare pentru <i>eveniment</i></h2><span>răspundem în 24 h</span></div>
     <div class="ev">
      <div class="pane">
-      <div class="sec"><h4>1 · Evenimentul</h4><div class="types" id="evTypes" role="group" aria-label="Tipul evenimentului"></div></div>
-      <div class="sec"><h4>2 · Data <span>weekendurile se ocupă repede</span></h4><div id="evCal"></div></div>
-      <div class="sec"><h4><label for="evg">3 · Câți invitați?</label></h4><div class="rng"><input type="range" id="evg"><b id="evgV" aria-hidden="true"></b></div></div>
-      <div class="sec"><h4>4 · Ce vrei să pregătim</h4><div id="evPk"></div></div>
+      <div class="sec"><h3>1 · Evenimentul</h3><div class="types" id="evTypes" role="group" aria-label="Tipul evenimentului"></div></div>
+      <div class="sec"><h3>2 · Data <span>weekendurile se ocupă repede</span></h3><div id="evCal"></div></div>
+      <div class="sec"><h3><label for="evg">3 · Câți invitați?</label></h3><div class="rng"><input type="range" id="evg"><b id="evgV" aria-hidden="true"></b></div></div>
+      <div class="sec"><h3>4 · Ce vrei să pregătim</h3><div id="evPk"></div></div>
       <form id="f-ev" name="rezervare-eveniment" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" class="sec" style="margin:0" novalidate>
        <input type="hidden" name="form-name" value="rezervare-eveniment">
        <p class="hp" aria-hidden="true"><label>Nu completa acest câmp <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
        <input type="hidden" name="tip"><input type="hidden" name="data"><input type="hidden" name="invitati"><input type="hidden" name="pachete"><input type="hidden" name="etaje_tort"><input type="hidden" name="total"><input type="hidden" name="avans">
-       <h4>5 · Datele tale</h4>
+       <h3>5 · Datele tale</h3>
        <div class="fgrid">
         <label class="fld full"><span>Locația evenimentului</span><input name="locatie" placeholder="ex. Restaurant …, Timișoara" autocomplete="off" required></label>
         <label class="fld"><span>Nume</span><input name="nume" autocomplete="name" required></label>
@@ -163,8 +163,8 @@ document.querySelector('meta[name="theme-color"]').setAttribute("content",T[t]);
     <input type="hidden" name="form-name" value="comanda">
     <p class="hp" aria-hidden="true"><label>Nu completa acest câmp <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
     <input type="hidden" name="produse"><input type="hidden" name="zi_copt"><input type="hidden" name="livrare"><input type="hidden" name="subtotal"><input type="hidden" name="transport"><input type="hidden" name="total">
-    <div class="fsec"><h4>Ziua de copt</h4><div class="bakec" id="bakeCart" role="group" aria-label="Ziua de copt"></div></div>
-    <div class="fsec"><h4>Datele tale</h4>
+    <div class="fsec"><h3>Ziua de copt</h3><div class="bakec" id="bakeCart" role="group" aria-label="Ziua de copt"></div></div>
+    <div class="fsec"><h3>Datele tale</h3>
      <div class="fgrid">
       <label class="fld full"><span>Nume</span><input name="nume" autocomplete="name" required></label>
       <label class="fld full"><span>Telefon</span><input name="telefon" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9 +]{9,}"></label>
