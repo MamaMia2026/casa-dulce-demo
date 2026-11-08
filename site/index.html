@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ro" data-theme="pudra">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F3E4E1">
+<script>
+/* tema înainte de prima afișare: ?tema= → localStorage → implicit „pudra” */
+(function(){var T={ciocolata:"#3B2418",pudra:"#F3E4E1",colorat:"#2149A8"},t=null;
+try{var p=new URLSearchParams(location.search).get("tema");if(p&&T[p]){t=p;localStorage.setItem("cd_tema",p)}}catch(e){}
+if(!t){try{t=localStorage.getItem("cd_tema")}catch(e){}}if(!T[t])t="pudra";
+document.documentElement.setAttribute("data-theme",t);
+document.querySelector('meta[name="theme-color"]').setAttribute("content",T[t]);window.THEME_COLORS=T})();
+</script>
+<title>Casa Dulce – cofetărie de casă</title>
+<meta name="description" content="Casa Dulce – machetă demo: comenzi de prăjituri de casă, rezervări pentru nunți, botezuri și aniversări, precomenzi de cozonac.">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/img/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/img/icons/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Casa Dulce">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="/css/themes.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/data.js" defer></script>
+<script src="/js/shop.js" defer></script>
+<script src="/js/events.js" defer></script>
+<script src="/js/cozonac.js" defer></script>
+<script src="/js/cart.js" defer></script>
+<script src="/js/app.js" defer></script>
+</head>
+<body>
+<div class="app" id="app">
+ <aside class="rail" aria-label="Meniu principal">
+  <a class="logo" href="/" data-link><i aria-hidden="true">🥧</i><span><b>Casa Dulce</b><span>cofetărie de casă</span></span></a>
+  <nav aria-label="Secțiuni">
+   <a class="nav" href="/" data-link data-v="home"><span class="e" aria-hidden="true">🏠</span>Acasă</a>
+   <a class="nav" href="/prajituri" data-link data-v="shop"><span class="e" aria-hidden="true">🍰</span>Prăjituri</a>
+   <a class="nav" href="/evenimente" data-link data-v="events"><span class="e" aria-hidden="true">💍</span>Nunți &amp; botezuri</a>
+   <a class="nav" href="/cozonaci" data-link data-v="coz"><span class="e" aria-hidden="true">🍞</span>Cozonaci <span class="bd">Crăciun</span></a>
+   <a class="nav" href="/comenzi" data-link data-v="orders"><span class="e" aria-hidden="true">📋</span>Comenzile mele <span class="bd ordn" hidden></span></a>
+  </nav>
+  <div class="sp"></div>
+  <div class="cal-card"><span>Cozonaci de Crăciun</span><b class="cozRes"></b><div class="bar"><i class="cozBar"></i></div><span>Rezervările se închid pe <span class="cozClose"></span>.</span></div>
+  <div class="themes" role="group" aria-label="Tema de culoare"><p>Tema</p>
+   <button type="button" class="tbtn" data-theme-set="pudra" aria-pressed="false"><i aria-hidden="true"></i>Pudră</button>
+   <button type="button" class="tbtn" data-theme-set="ciocolata" aria-pressed="false"><i aria-hidden="true"></i>Ciocolată</button>
+   <button type="button" class="tbtn" data-theme-set="colorat" aria-pressed="false"><i aria-hidden="true"></i>Colorat</button>
+  </div>
+  <p class="demo">Machetă demo · produse, prețuri și date de exemplu · Site realizat de <b>CristianWeb</b><br><a href="https://cristianweb.ro" target="_blank" rel="noopener">Vreau o aplicație ca aceasta →</a></p>
+  <p class="legal"><a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">ANPC – SAL</a> · <a href="/confidentialitate.html">Confidențialitate</a></p>
+ </aside>
+
+ <main class="main" id="main">
+  <header class="mtop"><a class="logo" href="/" data-link><i aria-hidden="true">🥧</i><span><b>Casa Dulce</b></span></a><div class="mb">Următoarea coacere<b class="nextBake"></b></div></header>
+  <div class="top"><label class="srch"><span aria-hidden="true">🔍</span><input class="q" type="search" placeholder="Caută: amandine, cozonac, cornulețe…" aria-label="Caută prăjituri"></label><div class="bake" id="bake" role="group" aria-label="Ziua de copt"></div></div>
+  <div class="scroll" id="scroll">
+
+   <section class="view" id="v-home" aria-labelledby="h-home">
+    <div class="hero">
+     <div class="tx"><span class="eyebrow">Prăjituri de casă · Timișoara</span>
+      <h1 class="fr" id="h-home">Dulciuri ca la mama,<br><i>pentru zilele importante.</i></h1>
+      <p>Prăjituri de tavă și cofetărie, cozonaci frământați de mână, torturi și candy bar pentru nunți și botezuri.</p>
+      <div class="btns"><a class="btn btn-c" href="/prajituri" data-link>Comandă prăjituri</a><a class="btn btn-l" href="/evenimente" data-link>Rezervă pentru eveniment</a></div></div>
+     <div class="im"><img src="/img/platou-prajituri.webp" alt="Tavă cu prăjituri de casă" width="378" height="376"><img src="/img/tort-nunta.webp" alt="Tort de nuntă" width="378" height="368" fetchpriority="high"><img src="/img/cozonaci.webp" alt="Cozonac" width="378" height="368"></div>
+    </div>
+    <div class="tiles">
+     <a class="tile" href="/evenimente" data-link data-type="nunta"><img src="/img/tort-nunta.webp" alt="" width="378" height="368" fetchpriority="high"><div><b>Nunți</b><span>Tort pe etaje, candy bar, platouri</span></div></a>
+     <a class="tile" href="/evenimente" data-link data-type="botez"><img src="/img/tort-botez.webp" alt="" width="378" height="368" loading="lazy"><div><b>Botezuri</b><span>Tort, prăjituri, pachețele</span></div></a>
+     <a class="tile" href="/cozonaci" data-link><img src="/img/cozonaci.webp" alt="" width="378" height="368" loading="lazy"><div><b>Cozonaci</b><span>Precomenzi de Crăciun și Paște</span></div></a>
+    </div>
+    <div class="hd"><h2 class="fr">Din tava săptămânii</h2><span>se coc joi, vineri, sâmbătă</span></div>
+    <div class="grid" id="grid0"></div>
+    <div class="macc" aria-label="Contul tău">
+     <h2 class="fr">Contul tău</h2>
+     <a class="nav" href="/comenzi" data-link data-v="orders"><span class="e" aria-hidden="true">📋</span>Comenzile mele <span class="bd ordn" hidden></span></a>
+     <div class="themes" role="group" aria-label="Tema de culoare"><p>Tema</p>
+      <button type="button" class="tbtn" data-theme-set="pudra" aria-pressed="false"><i aria-hidden="true"></i>Pudră</button>
+      <button type="button" class="tbtn" data-theme-set="ciocolata" aria-pressed="false"><i aria-hidden="true"></i>Ciocolată</button>
+      <button type="button" class="tbtn" data-theme-set="colorat" aria-pressed="false"><i aria-hidden="true"></i>Colorat</button>
+     </div>
+     <p class="demo">Machetă demo · produse, prețuri și date de exemplu · Site realizat de <b>CristianWeb</b><br><a href="https://cristianweb.ro" target="_blank" rel="noopener">Vreau o aplicație ca aceasta →</a></p>
+     <p class="legal"><a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">ANPC – SAL</a> · <a href="/confidentialitate.html">Confidențialitate</a></p>
+    </div>
+   </section>
+
+   <section class="view" id="v-shop" aria-labelledby="h-shop">
+    <div class="hd"><h2 class="fr" id="h-shop">Prăjituri</h2><span id="cnt"></span></div>
+    <label class="srch msrch"><span aria-hidden="true">🔍</span><input class="q" type="search" placeholder="Caută: amandine, cornulețe…" aria-label="Caută prăjituri"></label>
+    <div class="chips" id="chips" role="group" aria-label="Categorii"></div>
+    <div class="grid" id="grid"></div>
+   </section>
+
+   <section class="view" id="v-events" aria-labelledby="h-events">
+    <div class="hd"><h2 class="fr" id="h-events">Rezervare pentru <i>eveniment</i></h2><span>răspundem în 24 h</span></div>
+    <div class="ev">
+     <div class="pane">
+      <div class="sec"><h4>1 · Evenimentul</h4><div class="types" id="evTypes" role="group" aria-label="Tipul evenimentului"></div></div>
+      <div class="sec"><h4>2 · Data <span>weekendurile se ocupă repede</span></h4><div id="evCal"></div></div>
+      <div class="sec"><h4><label for="evg">3 · Câți invitați?</label></h4><div class="rng"><input type="range" id="evg"><b id="evgV" aria-hidden="true"></b></div></div>
+      <div class="sec"><h4>4 · Ce vrei să pregătim</h4><div id="evPk"></div></div>
+      <form id="f-ev" name="rezervare-eveniment" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" class="sec" style="margin:0" novalidate>
+       <input type="hidden" name="form-name" value="rezervare-eveniment">
+       <p class="hp" aria-hidden="true"><label>Nu completa acest câmp <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+       <input type="hidden" name="tip"><input type="hidden" name="data"><input type="hidden" name="invitati"><input type="hidden" name="pachete"><input type="hidden" name="etaje_tort"><input type="hidden" name="total"><input type="hidden" name="avans">
+       <h4>5 · Datele tale</h4>
+       <div class="fgrid">
+        <label class="fld full"><span>Locația evenimentului</span><input name="locatie" placeholder="ex. Restaurant …, Timișoara" autocomplete="off" required></label>
+        <label class="fld"><span>Nume</span><input name="nume" autocomplete="name" required></label>
+        <label class="fld"><span>Telefon</span><input name="telefon" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9 +]{9,}"></label>
+        <label class="fld full"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="fld full"><span>Observații (opțional)</span><textarea name="observatii" rows="2" placeholder="tematică, culori, alergii…"></textarea></label>
+       </div>
+       <label class="chk"><input type="checkbox" name="degustare" value="da"><span>Aș vrea o degustare înainte de eveniment</span></label>
+       <label class="chk"><input type="checkbox" name="acord_date" value="da" required><span>Sunt de acord cu prelucrarea datelor personale pentru această rezervare (<a href="/confidentialitate.html" target="_blank" rel="noopener">politica de confidențialitate</a>).</span></label>
+      </form>
+     </div>
+     <aside class="evs" aria-label="Sumarul rezervării">
+      <div id="evSum" style="display:flex;flex-direction:column;gap:12px" aria-live="polite"></div>
+      <button class="btn btn-h" type="submit" form="f-ev" id="evSend">Trimite cererea de rezervare</button>
+      <small>Estimare orientativă. Te sunăm pentru degustare și oferta finală. Data se blochează după plata avansului. Fără plată online. <a class="wa" id="waEv" target="_blank" rel="noopener" href="#">Sau scrie-ne pe WhatsApp →</a></small>
+     </aside>
+    </div>
+   </section>
+
+   <section class="view" id="v-coz" aria-labelledby="h-coz">
+    <div class="hd"><h2 class="fr" id="h-coz">Cozonaci de <i>Crăciun</i></h2><span>doar <span class="cozTotal"></span> de bucăți</span></div>
+    <div class="coz"><img src="/img/cozonaci.webp" alt="Cozonaci cu nucă și cacao" width="378" height="368" loading="lazy">
+     <div class="pane">
+      <div id="cozCfg"></div>
+      <div class="or">sau rezervă direct, fără coș</div>
+      <form id="f-coz" name="cozonac" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+       <input type="hidden" name="form-name" value="cozonac">
+       <p class="hp" aria-hidden="true"><label>Nu completa acest câmp <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+       <input type="hidden" name="umplutura"><input type="hidden" name="zi_ridicare"><input type="hidden" name="cantitate"><input type="hidden" name="total">
+       <div class="fgrid">
+        <label class="fld"><span>Nume</span><input name="nume" autocomplete="name" required></label>
+        <label class="fld"><span>Telefon</span><input name="telefon" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9 +]{9,}"></label>
+        <label class="fld full"><span>Observații (opțional)</span><textarea name="observatii" rows="2"></textarea></label>
+       </div>
+       <div class="fsec" style="display:flex;flex-direction:column;gap:8px"><button class="btn btn-c" type="submit" id="cozSend">Trimite rezervarea</button>
+        <p class="note">Plătești la ridicare. Datele sunt folosite doar pentru rezervare (<a href="/confidentialitate.html">confidențialitate</a>). <a class="wa" id="waCoz" target="_blank" rel="noopener" href="#">Sau pe WhatsApp →</a></p></div>
+      </form>
+     </div>
+    </div>
+   </section>
+
+   <section class="view" id="v-orders" aria-labelledby="h-orders">
+    <div class="hd"><h2 class="fr" id="h-orders">Comenzile mele</h2><span>salvate pe acest dispozitiv</span></div>
+    <div id="orders"></div>
+   </section>
+  </div>
+ </main>
+
+ <aside class="cartp" id="cartp" aria-label="Coșul tău" tabindex="-1">
+  <div class="h"><h2>Coșul tău</h2><span id="cartN">0 produse</span></div>
+  <div class="cl" id="cartScroll">
+   <div id="cartItems"></div>
+   <form id="f-cmd" name="comanda" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <input type="hidden" name="form-name" value="comanda">
+    <p class="hp" aria-hidden="true"><label>Nu completa acest câmp <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <input type="hidden" name="produse"><input type="hidden" name="zi_copt"><input type="hidden" name="livrare"><input type="hidden" name="subtotal"><input type="hidden" name="transport"><input type="hidden" name="total">
+    <div class="fsec"><h4>Ziua de copt</h4><div class="bakec" id="bakeCart" role="group" aria-label="Ziua de copt"></div></div>
+    <div class="fsec"><h4>Datele tale</h4>
+     <div class="fgrid">
+      <label class="fld full"><span>Nume</span><input name="nume" autocomplete="name" required></label>
+      <label class="fld full"><span>Telefon</span><input name="telefon" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9 +]{9,}"></label>
+      <label class="fld full" id="adrWrap" hidden><span>Adresa de livrare (Timișoara)</span><input name="adresa" autocomplete="street-address"></label>
+      <label class="fld full"><span>Observații (opțional)</span><textarea name="observatii" rows="2"></textarea></label>
+     </div>
+     <p class="note" style="text-align:left;margin-top:8px">Datele sunt folosite doar pentru comandă (<a href="/confidentialitate.html">confidențialitate</a>).</p>
+    </div>
+   </form>
+  </div>
+  <div class="cf">
+   <div class="mode" id="mode" role="group" aria-label="Mod de primire"><button type="button" data-m="ridicare">Ridic din atelier</button><button type="button" data-m="livrare">Livrare acasă</button></div>
+   <div class="lines" id="lines"></div>
+   <button class="btn btn-c" type="submit" form="f-cmd" id="send">Trimite comanda</button>
+   <p class="note">Plata la ridicare sau la livrare. Fără plată online. <a class="wa" id="waCmd" target="_blank" rel="noopener" href="#">Sau pe WhatsApp →</a></p>
+  </div>
+ </aside>
+
+ <a class="mcart" href="/cos" data-link data-v="cart"><span><span class="cntn">0</span> produse · <b class="tot">0 lei</b></span><span class="g">Vezi coșul →</span></a>
+ <nav class="tabbar" aria-label="Navigare">
+  <a href="/" data-link data-v="home"><span class="e" aria-hidden="true">🏠</span>Acasă</a>
+  <a href="/prajituri" data-link data-v="shop"><span class="e" aria-hidden="true">🍰</span>Prăjituri</a>
+  <a href="/evenimente" data-link data-v="events"><span class="e" aria-hidden="true">💍</span>Evenimente</a>
+  <a href="/cos" data-link data-v="cart"><span class="e" aria-hidden="true">🧺</span>Coș<span class="bdg cntn">0</span></a>
+  <a href="/cozonaci" data-link data-v="coz"><span class="e" aria-hidden="true">🍞</span>Cozonaci</a>
+ </nav>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="thx" id="thx" hidden role="dialog" aria-modal="true" aria-labelledby="thxT">
+ <div class="thx-b" id="thxB"><div class="thx-i" id="thxI" aria-hidden="true">✓</div><h2 class="fr" id="thxT"></h2><p id="thxP"></p>
+  <div class="thx-a"><a class="btn btn-h" id="thxWa" target="_blank" rel="noopener" href="#">Trimite și pe WhatsApp</a><a class="btn btn-c" href="/comenzi" data-link id="thxOrd">Vezi comenzile mele</a><button class="btn btn-l" type="button" id="thxX">Închide</button></div></div>
+</div>
+</body>
+</html>
